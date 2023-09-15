@@ -4,3 +4,5 @@ pas/*
 bin/*api*.cmd
 bin/*o.ps1
 bin/*o.cmd
+private_*
+!public_*

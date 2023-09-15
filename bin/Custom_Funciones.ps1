@@ -6,3 +6,4 @@ function AddGitBashBin {
 	$env:Path += ";C:\Program Files\Git\usr\bin;C:\Program Files\Git\mingw64\bin"
 	Write-Host "Git Bash agregado al Path"
 }
+Set-Variable -Name "splitedEnv" -Value $env:Path.Split(";")
