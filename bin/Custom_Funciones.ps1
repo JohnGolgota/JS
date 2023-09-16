@@ -17,16 +17,15 @@ function Add-RepoToHashtable {
 
         [bool]$Force = $false
     )
-    if ($Force -eq $true) {
-        Set-Content -Path $RepoHashPath -Value ''
-    }
     $RepoHash = @{}
-    . $RepoHashPath
+    if ($Force -eq $false) {
+        . $RepoHashPath
+    }
     $RepoNames = @()
     # TODO validate if repo exists
     $RepoHash.Add($NewRepoName, $NewRepoPath)
 
-    Set-Content -Path $RepoHashPath -value '$RepoHash = @{'
+    Set-Content -Path $RepoHashPath -Value '$RepoHash = @{'
     foreach ($Repo in $RepoHash.GetEnumerator()) {
         Add-Content -Path $RepoHashPath -value "`"$($Repo.Key)`"=`"$($Repo.Value)`""
         # array from hashtable keys
@@ -54,7 +53,6 @@ function Build-RepoCLI {
     foreach ($Repo in $RepoHash.GetEnumerator()) {
         Add-Content -Path $RepoCLIPath -Value "`"$($Repo.Key)`" = `"$($Repo.Value)`""
     }
-    Add-Content -Path $RepoCLIPath -Value '"Default" = ""'
     Add-Content -Path $RepoCLIPath -Value "}"
     Add-Content -Path $RepoCLIPath -Value 'if ($repos.ContainsKey($Repo)) {'
     Add-Content -Path $RepoCLIPath -Value 'code-insiders $repos[$Repo]'
