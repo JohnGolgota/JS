@@ -65,3 +65,6 @@ function Render-RepoCLI {
 	Add-Content -Path $RepoCLIPath -Value 'Write-Host "Error: $($_.Exception.Message)"'
 	Add-Content -Path $RepoCLIPath -Value "}"
 }
+function Edit-RepoCLI {
+    # TODO fail
+}
