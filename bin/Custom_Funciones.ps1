@@ -6,13 +6,39 @@ $RepoHashPath = $MyPaths[0]
 $RepoCLIPath = $MyPaths[1]
 
 Set-Variable -Name "splitedEnv" -Value $env:Path.Split(";")
+function Write-RepoCLIParams {
+    param (
+        [Parameter(Mandatory = $true)]
+        [hashtable]$RepoHash
+    )
+    try {
+        
+        Set-Content -Path $RepoHashPath -Value '$RepoHash = @{'
+        foreach ($Repo in $RepoHash.GetEnumerator()) {
+            Add-Content -Path $RepoHashPath -value "`"$($Repo.Key)`"=`"$($Repo.Value)`""
+            # array from hashtable keys
+            $RepoNames += $Repo.Key
+        }
+        Add-Content -Path $RepoHashPath -value "}"
+    
+        $RepoNamesJoin = $RepoNames -join "','"
+        Add-Content -Path $RepoHashPath -value $('$RepoNames = @(' + "'$RepoNamesJoin'" + ')')
+    }
+    catch {
+        Write-Host "Error: $($_.Exception.Message)"
+    }
+}
 function Remove-ToRepoCLI {
     param (
         [Parameter(Mandatory = $true)]
         [string]$RepoToRemove
     )
     try {
-
+        $RepoHash = @{}
+        . $RepoHashPath
+        $RepoHash.Remove($RepoToRemove)
+        Write-RepoCLIParams -RepoHash $RepoHash
+        Build-RepoCLI
     }
     catch {
         Write-Host "Error: $($_.Exception.Message)"
@@ -34,21 +60,9 @@ function Add-ToRepoCLI {
         if ($Force -eq $false) {
             . $RepoHashPath
         }
-        $RepoNames = @()
         # TODO validate if repo exists
         $RepoHash.Add($NewRepoName, $NewRepoPath)
-
-        Set-Content -Path $RepoHashPath -Value '$RepoHash = @{'
-        foreach ($Repo in $RepoHash.GetEnumerator()) {
-            Add-Content -Path $RepoHashPath -value "`"$($Repo.Key)`"=`"$($Repo.Value)`""
-            # array from hashtable keys
-            $RepoNames += $Repo.Key
-        }
-        Add-Content -Path $RepoHashPath -value "}"
-    
-        $RepoNamesJoin = $RepoNames -join "','"
-        Add-Content -Path $RepoHashPath -value $('$RepoNames = @(' + "'$RepoNamesJoin'" + ')')
-
+        Write-RepoCLIParams -RepoHash $RepoHash
         Build-RepoCLI
     }
     catch {
