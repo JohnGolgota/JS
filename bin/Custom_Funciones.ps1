@@ -12,7 +12,7 @@ function Write-RepoCLIParams {
         [hashtable]$RepoHash
     )
     try {
-        
+        $RepoNames = @()
         Set-Content -Path $RepoHashPath -Value '$RepoHash = @{'
         foreach ($Repo in $RepoHash.GetEnumerator()) {
             Add-Content -Path $RepoHashPath -value "`"$($Repo.Key)`"=`"$($Repo.Value)`""
@@ -55,7 +55,6 @@ function Add-ToRepoCLI {
         [bool]$Force = $false
     )
     try {
-        
         $RepoHash = @{}
         if ($Force -eq $false) {
             . $RepoHashPath
@@ -68,7 +67,33 @@ function Add-ToRepoCLI {
     catch {
         Write-Host "Error: $($_.Exception.Message)"
     }
-    
+}
+function Get-RepoCLI {
+    try {
+        $RepoHash = @{}
+        . $RepoHashPath
+        $RepoHash.GetEnumerator()
+    }
+    catch {
+        Write-Host "Error: $($_.Exception.Message)"
+    }    
+}
+function Edit-RepoCLI {
+    param (
+        [Parameter(Mandatory = $true)]
+        [string]$RepoToEdit,
+
+        [Parameter(Mandatory = $true)]
+        [string]$NewRepoPath
+    )
+    $RepoHash = @{}
+    . $RepoHashPath
+
+    $RepoHash[$RepoToEdit] = $NewRepoPath
+
+    Write-RepoCLIParams -RepoHash $RepoHash
+    Build-RepoCLI
+
 }
 
 function Build-RepoCLI {
