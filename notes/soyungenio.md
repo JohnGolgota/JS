@@ -5,3 +5,6 @@ No tengo pruebas... tampoco dudas.
 sise = "si"
 console.log("no se", sise)
 ```
+```powershell
+Write-Host "WoW"
+```
