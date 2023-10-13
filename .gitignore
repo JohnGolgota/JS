@@ -1,4 +1,4 @@
-pas/*
+personal*/*
 *~
 *ignorar*
 bin/*api*.cmd
@@ -6,3 +6,4 @@ bin/*o.ps1
 bin/*o.cmd
 private_*
 !public_*
+api.git
