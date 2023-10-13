@@ -1,5 +1,5 @@
 # Description: Test script for VS Code
-#
+# Soy increible... documentar? que es eso?
 
 $MyPaths = $env:MY_PATHS -split ";"
 $RepoHashPath = $MyPaths[0]
