@@ -136,3 +136,12 @@ function AddGitBashBin {
     $env:Path += ";C:\Program Files\Git\usr\bin;C:\Program Files\Git\mingw64\bin"
     Write-Host "Git Bash agregado al Path"
 }
+function Set-CustomMain {
+    try {
+        Set-Alias -Name x -Value nvim -Option AllScope -Scope Global
+        Write-Host "Custom-Main"
+    }
+    catch {
+        Write-Host "Error: $($_.Exception.Message)"
+    }
+}
