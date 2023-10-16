@@ -139,6 +139,7 @@ function AddGitBashBin {
 function Set-CustomMain {
     try {
         Set-Alias -Name x -Value nvim -Option AllScope -Scope Global
+        Set-Alias -Name c -Value code-insiders -Option AllScope -Scope Global
         Write-Host "Custom-Main"
     }
     catch {
