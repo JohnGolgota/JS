@@ -1,70 +1,21 @@
-# Description: Test script for VS Code
-#
-$MyPaths = $env:MY_PATHS -split ";"
-$RepoHashPath = $MyPaths[0]
-$RepoCLIPath = $MyPaths[1]
-
-function Add-RepoToHashtable {
-	param (
-		[Parameter(Mandatory = $true)]
-		[string]$NewRepoName,
-
-		[Parameter(Mandatory = $true)]
-		[string]$NewRepoPath
-	)
-	$RepoHash = @{}
-	$RepoNames = @()
-	. $RepoHashPath
-	# TODO validate if repo exists
-	$RepoHash.Add($NewRepoName, $NewRepoPath)
-
-	Set-Content -Path $RepoHashPath -value '$RepoHash = @{'
-	foreach ($Repo in $RepoHash.GetEnumerator()) {
-		Add-Content -Path $RepoHashPath -value "`"$($Repo.Key)`"=`"$($Repo.Value)`""
-		# array from hashtable keys
-		$RepoNames += $Repo.Key
-	}
-	Add-Content -Path $RepoHashPath -value "}"
-
-	# add string from var $RepoNames
-	Add-Content -Path $RepoHashPath -value '$RepoNames = @('
-	foreach ($RepoName in $RepoNames) {
-		Add-Content -Path $RepoHashPath -value "`"$RepoName`","
-	}
-	Add-Content -Path $RepoHashPath -value ")"
-
+try {   
+    $dateString = Get-Date -Format "yyyy-MM-dd"
+    $resultDir = "$testdir\test-results\$dateString"
+    $toBackupDir = "$testdir\backup"
+    # make a directory for the test results
+    if (-not (Test-Path $resultDir)) {
+        New-Item -ItemType Directory -Path $resultDir
+        Write-Host "Created directory $resultDir"
+    }
+    else {
+        Write-Host "Directory $resultDir already exists"
+    }
+    # copy the files to backup to the test results directory
+    Write-Host "Copying files from $toBackupDir to $resultDir"
+    Copy-Item -Path "$toBackupDir\*" -Destination $resultDir -Recurse -Force
+    Write-Host "Done"
 }
-
-function Render-RepoCLI {
-	$RepoHash = @{}
-	$RepoNames = @()
-	. $RepoHashPath
-	Set-Content -Path $RepoCLIPath -Value "param ("
-	Add-Content -Path $RepoCLIPath -Value "[ValidateSet("
-	foreach ($RepoName in $RepoNames) {
-		Add-Content -Path $RepoCLIPath -Value "`"$RepoName`","
-	}
-	Add-Content -Path $RepoCLIPath -Value ")]"
-	Add-Content -Path $RepoCLIPath -Value '[string]$Repo = "NoRepoProvided"'
-	Add-Content -Path $RepoCLIPath -Value ")"
-	Add-Content -Path $RepoCLIPath -Value "try {"
-	Add-Content -Path $RepoCLIPath -Value 'Write-Host "Repo: $Repo"'
-	Add-Content -Path $RepoCLIPath -Value '$repos = @{'
-	foreach ($Repo in $RepoHash.GetEnumerator()) {
-		Add-Content -Path $RepoCLIPath -Value "`"$($Repo.Key)`" = `"$($Repo.Value)`""
-	}
-	Add-Content -Path $RepoCLIPath -Value '"Default" = ""'
-	Add-Content -Path $RepoCLIPath -Value "}"
-	Add-Content -Path $RepoCLIPath -Value 'if ($repos.ContainsKey($Repo)) {'
-	Add-Content -Path $RepoCLIPath -Value 'code-insiders $repos[$Repo]'
-	Add-Content -Path $RepoCLIPath -Value "} else {"
-	Add-Content -Path $RepoCLIPath -Value 'code-insiders'
-	Add-Content -Path $RepoCLIPath -Value "}"
-	Add-Content -Path $RepoCLIPath -Value "}"
-	Add-Content -Path $RepoCLIPath -Value "catch {"
-	Add-Content -Path $RepoCLIPath -Value 'Write-Host "Error: $($_.Exception.Message)"'
-	Add-Content -Path $RepoCLIPath -Value "}"
-}
-function Edit-RepoCLI {
-    # TODO fail
+catch {
+    <#Do this if a terminating exception happens#>
+    Write-Host "Error: $_"
 }
