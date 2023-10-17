@@ -136,6 +136,18 @@ function AddGitBashBin {
     $env:Path += ";C:\Program Files\Git\usr\bin;C:\Program Files\Git\mingw64\bin"
     Write-Host "Git Bash agregado al Path"
 }
+function Get-CodeWorkspace {
+    $folderInfo = Get-Item .
+    $folderName = $folderInfo.Name
+    $CodeWorkspace = Get-ChildItem -Path . -Filter *.code-workspace -Recurse -ErrorAction SilentlyContinue
+    if ($null -eq $CodeWorkspace) {
+        Write-Host "No se encontró ningún archivo .code-workspace"
+        Copy-Item -Path "$env:JS\copy\example.code-workspace" -Destination "./$folderName.code-workspace"
+    }
+    else {
+        Write-Host "Se encontró el archivo .code-workspace"
+    }    
+}
 function Set-CustomMain {
     try {
         Set-Alias -Name x -Value nvim -Option AllScope -Scope Global
