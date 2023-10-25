@@ -7,3 +7,4 @@ bin/*o.cmd
 private_*
 !public_*
 api.git
+no
