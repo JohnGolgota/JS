@@ -8,5 +8,5 @@ function Get-LogCustom {
     $dateString = Get-Date -Format "dd-MM-yyyy HH:mm:ss"
     $log = "$dateString - $type - $message"
     Write-Host $log
-    Add-Content -Path "C:\JS\test\log.txt" -Value $log
+    Add-Content -Path $LogsPath -Value $log
 }
