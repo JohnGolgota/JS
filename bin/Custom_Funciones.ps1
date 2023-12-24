@@ -146,7 +146,7 @@ function Get-CodeWorkspace {
         Write-Host "Se encontró el archivo .code-workspace"
     }    
 }
-
+# Fue tan fácil que no segui mis propias instrucciones
 function Set-TempEnvFromFile {
     param (
         [Parameter(Mandatory = $true)]
