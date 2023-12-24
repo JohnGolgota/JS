@@ -146,6 +146,17 @@ function Get-CodeWorkspace {
         Write-Host "Se encontró el archivo .code-workspace"
     }    
 }
+
+function Set-TempEnvFromFile {
+    param (
+        [Parameter(Mandatory = $true)]
+        [string]$EnvFile
+    )
+    Get-Content $EnvFile | ForEach-Object {
+        $name, $value = $_ -split "="
+        Set-Content env:\$name $value
+    }
+}
 function Set-CustomMain {
     try {
         Set-Alias -Name x -Value nvim -Option AllScope -Scope Global
