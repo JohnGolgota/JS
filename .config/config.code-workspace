@@ -9,9 +9,10 @@
 		"editor.codeActionsOnSave": {
 			"source.fixAll": "always",
 			"source.organizeImports": "always",
-			"source.fixAll.markdownlint": "explicit"
+			"source.fixAll.markdownlint": "explicit" //
 		},
 		"editor.detectIndentation": false,
+		"editor.fontFamily": "'Cascadia Code', Consolas, 'Courier New', monospace", //
 		"editor.fontLigatures": true,
 		"editor.formatOnPaste": true,
 		"editor.formatOnSave": true,
@@ -30,15 +31,15 @@
 			"**/.github": true
 		},
 		"git.autofetch": false,
+		"git.confirmSync": false,
 		"html.format.wrapAttributes": "auto",
 		"html.format.wrapLineLength": 0,
-		"workbench.editor.wrapTabs": true,
-		"workbench.startupEditor": "none",
-		"window.commandCenter": true,
+		"terminal.integrated.stickyScroll.enabled": false,
 		"window.zoomLevel": 0,
-		"[php]": {
-			"editor.defaultFormatter": "DEVSENSE.phptools-vscode",
-		},
+		"window.commandCenter": true,
+		"workbench.editor.wrapTabs": false,
+		"workbench.startupEditor": "none",
+		"workbench.sideBar.location": "right",
 		"[typescript]": {
 			"editor.defaultFormatter": "vscode.typescript-language-features",
 		},
@@ -60,10 +61,6 @@
 		"[typescriptreact]": {
 			"editor.defaultFormatter": "vscode.typescript-language-features"
 		},
-		"[powershell]": {
-			"editor.defaultFormatter": "ms-vscode.powershell"
-		},
-		"git.confirmSync": false,
 		"turboConsoleLog.includeFileNameAndLineNum": false,
 		"turboConsoleLog.insertEnclosingClass": false,
 		"turboConsoleLog.insertEnclosingFunction": false,
@@ -77,7 +74,15 @@
 		"turboConsoleLog.quote": "\"",
 		"turboConsoleLog.wrapLogMessage": false,
 		"turboConsoleLog.logMessagePrefix": "",
-		"workbench.sideBar.location": "right"
+		"[csharp]": {
+			"editor.defaultFormatter": "ms-dotnettools.csharp"
+		},
+		"[powershell]": {
+			"editor.defaultFormatter": "ms-vscode.powershell"
+		},
+		"[php]": {
+			"editor.defaultFormatter": "DEVSENSE.phptools-vscode",
+		},
 	},
 	"extensions": {
 		"recommendations": [
@@ -89,31 +94,18 @@
 			"ms-vscode-remote.remote-wsl",
 			"ms-vsliveshare.vsliveshare",
 			"davidanson.vscode-markdownlint",
-			"ms-python.vscode-pylance",
-			"ms-python.python",
 			"chakrounanas.turbo-console-log",
 			"vue.vscode-typescript-vue-plugin",
 			"vue.volar",
-			"ziglang.vscode-zig",
 			"ms-vscode.live-server",
 			"github.vscode-github-actions",
 			"github.copilot-labs",
 			"redhat.vscode-yaml",
 			"ms-vscode.powershell",
-			"ms-toolsai.jupyter",
-			"ms-toolsai.vscode-jupyter-cell-tags",
-			"ms-toolsai.jupyter-keymap",
-			"ms-toolsai.jupyter-renderers",
-			"ms-toolsai.vscode-jupyter-slideshow",
 			"rust-lang.rust-analyzer",
-			"xdebug.php-debug",
-			"devsense.phptools-vscode",
-			"xdebug.php-pack",
-			"zobo.php-intellisense",
-			"devsense.profiler-php-vscode",
-			"bmewburn.vscode-intelephense-client",
 			"ms-vscode-remote.remote-containers",
-			"ms-azuretools.vscode-docker"
+			"ms-azuretools.vscode-docker",
+			"humao.rest-client"
 		],
 		"unwantedRecommendations": [
 			"eamodio.gitlens"
