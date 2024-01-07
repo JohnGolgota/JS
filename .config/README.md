@@ -55,10 +55,13 @@ git clone https://github.com/JohnGolgota/tru-01.git $HOME/tru-01
 git clone https://github.com/JohnGolgota/JS.git $env:JS
 ```
 
-### script para la instalacion de mis programas
+### script para la instalación de mis programas
+
+La forma de manejar la importación me pareció incómoda, sobre todo al resaltar las aplicaciones o buscar agregar información extra. Podría usarlo, si importara conjuntos más pequeños de aplicaciones relacionadas... pero mucho archivo, paso.
 
 ```bash
-winget import $HOME/tru-01/.configuration/winget.json --ignore-unavailable --ignore-version --no-upgrade
+# winget import $JS/.config/winget.json --ignore-unavailable --ignore-version --no-upgrade
+. winget.list.ps1
 ```
 
 ## [GitHub Desktop](https://desktop.github.com/)
