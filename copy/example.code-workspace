@@ -5,7 +5,113 @@
         }
     ],
     "settings": {
+        "editor.bracketPairColorization.enabled": true,
+        "editor.codeActionsOnSave": {
+            "source.fixAll": "always",
+            "source.organizeImports": "always",
+            "source.fixAll.markdownlint": "explicit" //
+        },
+        "editor.detectIndentation": false,
+        "editor.fontFamily": "'Cascadia Code', Consolas, 'Courier New', monospace", //
+        "editor.fontLigatures": true,
+        "editor.formatOnPaste": true,
+        "editor.formatOnSave": true,
+        "editor.guides.bracketPairs": "active",
+        "editor.indentSize": "tabSize",
+        "editor.insertSpaces": true,
+        "editor.linkedEditing": true,
+        "editor.minimap.enabled": false,
+        "editor.renderWhitespace": "selection",
+        "editor.stickyScroll.enabled": true,
+        "editor.tabSize": 4,
+        "editor.useTabStops": true,
+        "extensions.ignoreRecommendations": true,
+        "files.autoSave": "off",
+        "files.exclude": {
+            "**/.github": true
+        },
+        "git.autofetch": false,
+        "git.confirmSync": false,
+        "html.format.wrapAttributes": "auto",
+        "html.format.wrapLineLength": 0,
+        "terminal.integrated.stickyScroll.enabled": false,
+        "window.zoomLevel": 0,
+        "window.commandCenter": true,
+        "workbench.editor.wrapTabs": false,
+        "workbench.startupEditor": "none",
+        "workbench.sideBar.location": "right",
         "workbench.colorTheme": "Default Dark Modern",
-        "workbench.iconTheme": "vs-seti"
+        "workbench.iconTheme": "vs-seti",
+        "[typescript]": {
+            "editor.defaultFormatter": "vscode.typescript-language-features",
+        },
+        "[javascript]": {
+            "editor.defaultFormatter": "vscode.typescript-language-features",
+        },
+        "[css]": {
+            "editor.defaultFormatter": "vscode.css-language-features",
+        },
+        "[jsonc]": {
+            "editor.defaultFormatter": "vscode.json-language-features",
+        },
+        "[json]": {
+            "editor.defaultFormatter": "vscode.json-language-features",
+        },
+        "[javascriptreact]": {
+            "editor.defaultFormatter": "vscode.typescript-language-features"
+        },
+        "[typescriptreact]": {
+            "editor.defaultFormatter": "vscode.typescript-language-features"
+        },
+        "turboConsoleLog.includeFileNameAndLineNum": false,
+        "turboConsoleLog.insertEnclosingClass": false,
+        "turboConsoleLog.insertEnclosingFunction": false,
+        "turboConsoleLog.addSemicolonInTheEnd": false,
+        "turboConsoleLog.delimiterInsideMessage": "~",
+        "turboConsoleLog.insertEmptyLineAfterLogMessage": false,
+        "turboConsoleLog.insertEmptyLineBeforeLogMessage": false,
+        "turboConsoleLog.logFunction": "log",
+        "turboConsoleLog.logMessageSuffix": ":",
+        "turboConsoleLog.logType": "log",
+        "turboConsoleLog.quote": "\"",
+        "turboConsoleLog.wrapLogMessage": false,
+        "turboConsoleLog.logMessagePrefix": "",
+        "php.validate.executablePath": null,
+        "[csharp]": {
+            "editor.defaultFormatter": "ms-dotnettools.csharp"
+        },
+        "[powershell]": {
+            "editor.defaultFormatter": "ms-vscode.powershell"
+        },
+        "[php]": {
+            "editor.defaultFormatter": "DEVSENSE.phptools-vscode",
+        },
+    },
+    "extensions": {
+        "recommendations": [
+            "github.vscode-pull-request-github",
+            "editorconfig.editorconfig",
+            "donjayamanne.githistory",
+            "github.copilot",
+            "github.copilot-chat",
+            "ms-vscode-remote.remote-wsl",
+            "ms-vsliveshare.vsliveshare",
+            "davidanson.vscode-markdownlint",
+            "chakrounanas.turbo-console-log",
+            "vue.vscode-typescript-vue-plugin",
+            "vue.volar",
+            "ms-vscode.live-server",
+            "github.vscode-github-actions",
+            "github.copilot-labs",
+            "redhat.vscode-yaml",
+            "ms-vscode.powershell",
+            "rust-lang.rust-analyzer",
+            "ms-vscode-remote.remote-containers",
+            "ms-azuretools.vscode-docker",
+            "humao.rest-client"
+        ],
+        "unwantedRecommendations": [
+            "eamodio.gitlens"
+        ]
     }
 }

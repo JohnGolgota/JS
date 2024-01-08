@@ -1,0 +1,112 @@
+{
+  "profiles": {
+    "defaults": {
+      "colorScheme": "Campbell",
+      "opacity": 50,
+      "useAcrylic": false
+    },
+    "list": [
+      {
+        "commandline": "C:\\Program Files\\Git\\bin\\bash.exe",
+        "guid": "{c07b4c0c-2a1d-44bb-900e-829efcbd6b10}",
+        "hidden": false,
+        "icon": "C:\\Program Files\\Git\\mingw64\\share\\git\\git-for-windows.ico",
+        "name": "Git"
+      }
+    ]
+  },
+  "schemes": [
+    {
+      "background": "#282C34",
+      "black": "#41444D",
+      "blue": "#3476FF",
+      "brightBlack": "#8F9AAE",
+      "brightBlue": "#10B1FE",
+      "brightCyan": "#5FB9BC",
+      "brightGreen": "#3FC56B",
+      "brightPurple": "#FF78F8",
+      "brightRed": "#FF6480",
+      "brightWhite": "#FFFFFF",
+      "brightYellow": "#F9C859",
+      "cursorColor": "#FFCC00",
+      "cyan": "#4483AA",
+      "foreground": "#B9C0CB",
+      "green": "#25A45C",
+      "name": "BlulocoDark",
+      "purple": "#7A82DA",
+      "red": "#FC2F52",
+      "selectionBackground": "#B9C0CA",
+      "white": "#CDD4E0",
+      "yellow": "#FF936A"
+    },
+    {
+      "background": "#1F1726",
+      "black": "#000507",
+      "blue": "#883CDC",
+      "brightBlack": "#009CC9",
+      "brightBlue": "#308CBA",
+      "brightCyan": "#FF919D",
+      "brightGreen": "#F4DCA5",
+      "brightPurple": "#AE636B",
+      "brightRed": "#DA6BAC",
+      "brightWhite": "#E4838D",
+      "brightYellow": "#EAC066",
+      "cursorColor": "#DD00FF",
+      "cyan": "#C1B8B7",
+      "foreground": "#DAFAFF",
+      "green": "#2AB250",
+      "name": "WildCherry",
+      "purple": "#ECECEC",
+      "red": "#D94085",
+      "selectionBackground": "#002831",
+      "white": "#FFF8DE",
+      "yellow": "#FFD16F"
+    },
+    {
+      "background": "#29283B",
+      "black": "#535178",
+      "blue": "#65AEF7",
+      "brightBlack": "#535178",
+      "brightBlue": "#65AEF7",
+      "brightCyan": "#43C1BE",
+      "brightGreen": "#5ECA89",
+      "brightPurple": "#AA7FF0",
+      "brightRed": "#EF6487",
+      "brightWhite": "#FFFFFF",
+      "brightYellow": "#FDD877",
+      "cursorColor": "#B3B0D6",
+      "cyan": "#43C1BE",
+      "foreground": "#B3B0D6",
+      "green": "#5ECA89",
+      "name": "Whimsy",
+      "purple": "#AA7FF0",
+      "red": "#EF6487",
+      "selectionBackground": "#3D3C58",
+      "white": "#FFFFFF",
+      "yellow": "#FDD877"
+    },
+    {
+      "background": "#151515",
+      "black": "#252525",
+      "blue": "#FC595F",
+      "brightBlack": "#5D6F71",
+      "brightBlue": "#FC595F",
+      "brightCyan": "#BA8586",
+      "brightGreen": "#A63C40",
+      "brightPurple": "#DF9395",
+      "brightRed": "#832E31",
+      "brightWhite": "#F5F5F5",
+      "brightYellow": "#D2494E",
+      "cursorColor": "#FF443E",
+      "cyan": "#BA8586",
+      "foreground": "#A1B0B8",
+      "green": "#A63C40",
+      "name": "Tomorrow Night Burns",
+      "purple": "#DF9395",
+      "red": "#832E31",
+      "selectionBackground": "#B0BEC5",
+      "white": "#F5F5F5",
+      "yellow": "#D3494E"
+    }
+  ]
+}
