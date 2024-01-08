@@ -28,6 +28,12 @@ function SetFirst {
 	# winget setup
 	# installAll
 }
+function setupNvim {
+	# packer
+	git clone https://github.com/wbthomason/packer.nvim "$env:LOCALAPPDATA\nvim-data\site\pack\packer\start\packer.nvim"
+	git clone https://github.com/JohnGolgota/nvim-config.git "$env:LOCALAPPDATA\nvim"
+
+}
 
 function installAll {
 	Write-Host "Installing all..."
