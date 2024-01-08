@@ -74,6 +74,7 @@
 		"turboConsoleLog.quote": "\"",
 		"turboConsoleLog.wrapLogMessage": false,
 		"turboConsoleLog.logMessagePrefix": "",
+		"php.validate.executablePath": null,
 		"[csharp]": {
 			"editor.defaultFormatter": "ms-dotnettools.csharp"
 		},

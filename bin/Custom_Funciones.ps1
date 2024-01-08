@@ -1,8 +1,10 @@
 # Description: Test script for VS Code
 # Soy increible... documentar? que es eso?
-function Comprobar {
+function AdivinarNombre {
+    Write-Host "Voy a adivinar tu nombre"
     $Nombre = Read-Host "¿Cómo te llamas?"
-    Write-Host "Hola $Nombre"
+    Write-Host "Tu nombre es $Nombre"
+    curl ascii.live/donut
 }
 function Get-CodeWorkspace {
     $folderInfo = Get-Item .
