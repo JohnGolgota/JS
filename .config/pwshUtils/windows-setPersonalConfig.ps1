@@ -3,9 +3,10 @@ function  WingetInstallation {
 }
 function ScoopInstallation {
 	Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
-	Invoke-RestMethod get.scoop.sh | Invoke-Expression
+	# Invoke-RestMethod get.scoop.sh | Invoke-Expression
+	Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
 	# You can use proxies if you have network trouble in accessing GitHub, e.g.
-	Invoke-RestMethod get.scoop.sh -Proxy 'http://<ip:port>' | Invoke-Expression
+	# Invoke-RestMethod get.scoop.sh -Proxy 'http://<ip:port>' | Invoke-Expression
 }
 function SetFirst {
 	# installation
