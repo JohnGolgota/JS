@@ -63,5 +63,6 @@ $AplicationsList = @(
 )
 
 $AplicationsList | ForEach-Object {
+	Write-Host "winget install --id $_ -e --source winget"
 	winget install --id $_ -e --source winget
 }
