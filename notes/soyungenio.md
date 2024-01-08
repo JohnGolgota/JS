@@ -1,4 +1,4 @@
-# Yo soy un genio
+# Soy un genio
 
 No tengo pruebas... tampoco dudas.
 
