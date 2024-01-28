@@ -13,11 +13,14 @@ $AplicationsList = @(
 	# Cli
 	"Microsoft.PowerShell"
 	"GitHub.cli"
+	"BurntSushi.ripgrep.MSVC"
+	"sharkdp.fd"
 	# Editores de texto y IDEs
 	"Microsoft.VisualStudioCode.Insiders"
 	"Microsoft.VisualStudioCode"
 	"Neovim.Neovim"
 	"Google.AndroidStudio"
+	"VSCodium.VSCodium"
 	# Lenguajes de programación
 	"CoreyButler.NVMforWindows"
 	"Python.Python.3.11"
