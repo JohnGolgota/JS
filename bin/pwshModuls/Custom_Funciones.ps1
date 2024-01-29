@@ -16,7 +16,7 @@ function Get-CodeWorkspace {
     }
     else {
         Write-Host "Se encontró el archivo .code-workspace"
-    }    
+    }
 }
 # Fue tan fácil que no segui mis propias instrucciones
 function Set-TempEnvFromFile {
@@ -27,15 +27,5 @@ function Set-TempEnvFromFile {
     Get-Content $EnvFile | ForEach-Object {
         $name, $value = $_ -split "="
         Set-Content env:\$name $value
-    }
-}
-function Set-CustomMain {
-    try {
-        Set-Alias -Name x -Value nvim -Option AllScope -Scope Global
-        Set-Alias -Name c -Value code-insiders -Option AllScope -Scope Global
-        Write-Host "Custom-Main"
-    }
-    catch {
-        Write-Host "Error: $($_.Exception.Message)"
     }
 }
