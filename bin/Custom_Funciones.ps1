@@ -1,9 +1,21 @@
-function AdivinarNombre {
-    Write-Host "Voy a adivinar tu nombre"
-    $Nombre = Read-Host "¿Cómo te llamas?"
-    Write-Host "Tu nombre es $Nombre"
-    curl ascii.live/donut
+function Set-CustomMain {
+    try {
+        . $env:JS\bin\pwshModuls\Set-CustomAlias.ps1
+    }
+    catch {
+        Write-Host "Error: $($_.Exception.Message)"
+    }
 }
+
+function Import-CustomModules {
+    try {
+        Import-Module $env:JS\bin\pwshModuls\CustomUserUtils.psm1
+    }
+    catch {
+        Write-Host "Error: $($_.Exception.Message)"
+    }    
+}
+
 function Get-CodeWorkspace {
     $folderInfo = Get-Item .
     $folderName = $folderInfo.Name
@@ -16,7 +28,7 @@ function Get-CodeWorkspace {
         Write-Host "Se encontró el archivo .code-workspace"
     }
 }
-# Fue tan fácil que no segui mis propias instrucciones
+
 function Set-TempEnvFromFile {
     param (
         [Parameter(Mandatory = $true)]
@@ -28,12 +40,9 @@ function Set-TempEnvFromFile {
     }
 }
 
-function Set-CustomMain {
-    try {
-        Write-Host "Custom-Main"
-        . $env:JS\bin\pwshModuls\Set-CustomAlias.ps1
-    }
-    catch {
-        Write-Host "Error: $($_.Exception.Message)"
-    }
+function AdivinarNombre {
+    Write-Host "Voy a adivinar tu nombre"
+    $Nombre = Read-Host "¿Cómo te llamas?"
+    Write-Host "Tu nombre es $Nombre"
+    curl ascii.live/donut
 }
