@@ -12,9 +12,7 @@ $Alias.GetEnumerator() | ForEach-Object {
     if (Get-Command $value -ErrorAction SilentlyContinue) {
         Set-Alias -Name $name -Value $value -Option AllScope -Scope Global
     }
-    else {
-        $Alias:Err += $value
-    }
+
 }
 
 if ($AliasErr.Count -gt 0) {
