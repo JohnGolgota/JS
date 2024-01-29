@@ -1,5 +1,3 @@
-# Description: Test script for VS Code
-# Soy increible... documentar? que es eso?
 function AdivinarNombre {
     Write-Host "Voy a adivinar tu nombre"
     $Nombre = Read-Host "¿Cómo te llamas?"
@@ -27,5 +25,15 @@ function Set-TempEnvFromFile {
     Get-Content $EnvFile | ForEach-Object {
         $name, $value = $_ -split "="
         Set-Content env:\$name $value
+    }
+}
+
+function Set-CustomMain {
+    try {
+        Write-Host "Custom-Main"
+        . $env:JS\bin\pwshModuls\Set-CustomAlias.ps1
+    }
+    catch {
+        Write-Host "Error: $($_.Exception.Message)"
     }
 }
