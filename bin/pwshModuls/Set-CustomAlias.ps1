@@ -4,8 +4,6 @@ $Alias = @{
     "z" = "tmux"
 }
 
-$AliasErr = @()
-
 $Alias.GetEnumerator() | ForEach-Object {
     $name = $_.Name
     $value = $_.Value
@@ -13,8 +11,4 @@ $Alias.GetEnumerator() | ForEach-Object {
         Set-Alias -Name $name -Value $value -Option AllScope -Scope Global
     }
 
-}
-
-if ($AliasErr.Count -gt 0) {
-    Write-Host "No se encontraron los siguientes comandos: $($AliasErr -join ", ")"
 }
