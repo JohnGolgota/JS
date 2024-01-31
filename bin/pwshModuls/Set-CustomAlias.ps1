@@ -1,8 +1,4 @@
-$Alias = @{
-    "x" = "nvim"
-    "c" = "code-insiders"
-    "z" = "tmux"
-}
+. $Env:JS\bin\pwshModuls\Alias_enum.ps1
 
 $Alias.GetEnumerator() | ForEach-Object {
     $name = $_.Name
