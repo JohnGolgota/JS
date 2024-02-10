@@ -7,15 +7,6 @@ function Set-CustomMain {
     }
 }
 
-function Import-CustomModules {
-    try {
-        Import-Module $env:JS\bin\pwshModuls\CustomUserUtils.psm1
-    }
-    catch {
-        Write-Host "Error: $($_.Exception.Message)"
-    }    
-}
-
 function Get-CodeWorkspace {
     $folderInfo = Get-Item .
     $folderName = $folderInfo.Name

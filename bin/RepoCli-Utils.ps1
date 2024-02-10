@@ -3,20 +3,6 @@ $MyPaths = $env:MY_PATHS -split ";"
 $RepoHashPath = $MyPaths[0]
 $RepoCLIPath = $MyPaths[1]
 
-Set-Variable -Name "splitedEnv" -Value $env:Path.Split(";")
-
-function Get-LogCustom {
-    param(
-        [Parameter(Mandatory = $true)]
-        [string]$message,
-        [Parameter(Mandatory = $false)]
-        [string]$type = "INFO"
-    )
-    $dateString = Get-Date -Format "dd-MM-yyyy HH:mm:ss"
-    $log = "$dateString - $type - $message"
-    Write-Host $log
-    Add-Content -Path $LogsPath -Value $log
-}
 function Write-RepoCLIParams {
     param (
         [Parameter(Mandatory = $true)]
@@ -176,8 +162,4 @@ function Build-RepoCLI {
         Write-Host "Error: `$(`$_.Exception.Message)"
     }
 "@
-}
-function AddGitBashBin {
-    $env:Path += ";C:\Program Files\Git\usr\bin;C:\Program Files\Git\mingw64\bin"
-    Write-Host "Git Bash agregado al Path"
 }
