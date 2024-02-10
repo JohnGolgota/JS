@@ -3,6 +3,19 @@ $MyPaths = $env:MY_PATHS -split ";"
 $RepoHashPath = $MyPaths[0]
 $RepoCLIPath = $MyPaths[1]
 
+function Test-RepoCLIDependencies {
+    if (-not(Test-Path $RepoHashPath)) {
+        Write-Host "Creando archivo $RepoHashPath"
+        New-Item $RepoHashPath -ErrorAction SilentlyContinue
+    }
+    if (-not(Test-Path $RepoCLIPath)) {
+        Write-Host "Creando archivo $RepoCLIPath"
+        New-Item $RepoCLIPath -ErrorAction SilentlyContinue
+    }
+}
+
+Test-RepoCLIDependencies
+
 function Write-RepoCLIParams {
     param (
         [Parameter(Mandatory = $true)]
