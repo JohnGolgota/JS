@@ -31,7 +31,7 @@ function Write-RepoCLIParams {
             $RepoNames += $Repo.Key
         }
         Add-Content -Path $RepoHashPath -value "}"
-    
+
         $RepoNamesJoin = $RepoNames -join "','"
         Add-Content -Path $RepoHashPath -value $('$RepoNames = @(' + "'$RepoNamesJoin'" + ')')
     }
@@ -87,23 +87,45 @@ function Get-RepoCLI {
     }
     catch {
         Write-Host "Error: $($_.Exception.Message)"
-    }    
+    }
 }
 function Edit-RepoCLI {
     param (
-        [Parameter(Mandatory = $true)]
+        [Parameter(Mandatory = $true, ValueFromPipeline = $true)]
         [string]$RepoToEdit,
 
         [Parameter(Mandatory = $true)]
-        [string]$NewRepoPath
+        [string]$NewRepoPath,
+
+        [Parameter()]
+        [string]$NewName
     )
-    $RepoHash = @{}
-    . $RepoHashPath
+    try {
 
-    $RepoHash[$RepoToEdit] = $NewRepoPath
+        $RepoHash = @{}
+        . $RepoHashPath
 
-    Write-RepoCLIParams -RepoHash $RepoHash
-    Build-RepoCLI
+        if (-not $RepoHash.ContainsKey($RepoToEdit)) {
+            throw "El repositorio '$RepoToEdit' no existe, no se puede editar. Las opciones válidas son: $($RepoHash.Keys -join ', ')"
+        }
+        if (-not (Test-Path $NewRepoPath)) {
+            throw "El directorio '$NewRepoPath' no existe"
+        }
+
+        if ($NewName -ne $null) {
+            $RepoHash[$RepoToEdit] = $NewRepoPath
+        }
+        else {
+            $RepoHash.Remove($RepoToEdit)
+            $RepoHash.Add($NewName, $NewRepoPath)
+        }
+
+        Write-RepoCLIParams -RepoHash $RepoHash
+        Build-RepoCLI
+    }
+    catch {
+        Write-Host "Error: $($_.Exception.Message)"
+    }
 
 }
 function Build-RepoCLI {
