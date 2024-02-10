@@ -94,30 +94,48 @@ function Edit-RepoCLI {
         [Parameter(Mandatory = $true, ValueFromPipeline = $true)]
         [string]$RepoToEdit,
 
-        [Parameter(Mandatory = $true)]
+        [Parameter()]
         [string]$NewRepoPath,
 
         [Parameter()]
-        [string]$NewName
+        [string]$NewName,
+
+        [switch]$OnlyName = $false
     )
     try {
 
         $RepoHash = @{}
         . $RepoHashPath
+        Write-Host "RepoToEdit: $RepoToEdit"
 
+
+        Write-Host "Confirmación de parámetros: NewRepoPath: $NewRepoPath, NewName: $NewName, OnlyName: $OnlyName"
         if (-not $RepoHash.ContainsKey($RepoToEdit)) {
             throw "El repositorio '$RepoToEdit' no existe, no se puede editar. Las opciones válidas son: $($RepoHash.Keys -join ', ')"
+        }
+        Write-Host "El repositorio '$RepoToEdit' existe"
+        if ($NewRepoPath -eq "" -or $null -eq $NewRepoPath) {
+            $NewRepoPath = $RepoHash[$RepoToEdit]
+            Write-Host "No se ha proporcionado un nuevo directorio para el repositorio, se usará el actual"
         }
         if (-not (Test-Path $NewRepoPath)) {
             throw "El directorio '$NewRepoPath' no existe"
         }
+        Write-Host "El directorio '$NewRepoPath' existe"
 
-        if ($NewName -ne $null) {
-            $RepoHash[$RepoToEdit] = $NewRepoPath
+        if ($NewName -ne "" -and $OnlyName -eq $true) {
+            Write-Host "Se ha proporcionado un nuevo nombre para el repositorio"
+            $RepoHash.Add($NewName, $RepoHash[$RepoToEdit])
+            $RepoHash.Remove($RepoToEdit)
         }
-        else {
+        elseif ($NewName -ne "" -and $OnlyName -eq $false) {
+            Write-Host "Se ha proporcionado un nuevo nombre y un nuevo directorio para el repositorio"
             $RepoHash.Remove($RepoToEdit)
             $RepoHash.Add($NewName, $NewRepoPath)
+        }
+        else {
+            Write-Host "Se ha proporcionado un nuevo directorio para el repositorio"
+            $RepoHash[$RepoToEdit] = $NewRepoPath
         }
 
         Write-RepoCLIParams -RepoHash $RepoHash
