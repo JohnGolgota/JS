@@ -4,5 +4,5 @@ fn main(){
 }
 fn fucked() {
     println!(".l. monte y pedalea");
-    println!("Que jodan a apple");
+    println!("Que jodan a apple dos veces");
 }
