@@ -166,9 +166,9 @@ function Build-RepoCLI {
     Add-Content -Path $RepoCLIPath -Value @"
         }
         if (`$repos.ContainsKey(`$Repo)) {
-            code-insiders `$repos[`$Repo]
+            cd `$repos[`$Repo]
         } else {
-            code-insiders
+           throw "El Repositorio `$Repo No existe."
         }
     }
     catch {
