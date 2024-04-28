@@ -3,4 +3,5 @@ $Alias = @{
     "c" = "code-insiders"
     "z" = "tmux"
     "asd" = "repo"
+    "g" = "gitui"
 }
