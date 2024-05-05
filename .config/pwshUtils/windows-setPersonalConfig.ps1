@@ -1,11 +1,11 @@
-function Install-My-PS-Modules {
+function Install-MyPSModules {
 	Write-Host "Installing winget..."
 	Install-Module -Name Microsoft.WinGet.Client
 	Write-Host "Instala el módulo PSSQLite desde PowerShell Gallery"
 	Install-Module -Name PSSQLite
 }
 
-function ScoopInstallation {
+function Install-ScoopPersonal {
 	Write-Host "Installing scoop..."
 	Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 	Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
@@ -14,47 +14,29 @@ function ScoopInstallation {
 	# Invoke-RestMethod get.scoop.sh -Proxy 'http://<ip:port>' | Invoke-Expression
 }
 
-function setupNvim {
+function Set-NvimPersonalConfig {
 	git clone https://github.com/JohnGolgota/nvim-config.git "$env:LOCALAPPDATA\nvim"
 }
 
-function installAll {
+function Install-WingetAll {
 	Write-Host "Installing all..."
 	. $env:JS/.config/pwshUtils/winget.list.ps1
 }
 
-function SetFirstConfig {
-	Write-Host "Configuring all..."
-	Write-Host "Configuring github..."
-	github $env:JS
-	Write-Host "Configuring vscode..."
-	code $env:JS/.config/config.code-workspace
-	code-insiders $env:JS/.config/config.code-workspace
-}
-
 # requires admin privileges
-function SetSecondConfig {
-	Write-Host "Configuring pwsh..."
-	pwsh $env:JS/.config/config.pwsh.ps1
-	Write-Host "Configuring wt..."
-	wt
-	Write-Host "Configuring nvm..."
-	nvm https://github.com/coreybutler/nvm-windows
-	nvm install --lts
-	# pnpm https://pnpm.io/es/installation
-	# Invoke-WebRequest https://get.pnpm.io/install.ps1 -useb | Invoke-Expression
-	Write-Host "Configuring pnpm..."
-	corepack enable `
-		corepack prepare pnpm@latest --activate
+function Set-SecondConfig {
+	Write-Host "Configuring pwsh profile..."
+	pwsh $env:JS\.config\profile.pwsh.ps1
+	. $PROFILE
 }
 
-function setupwsl {
+function Set-PersonalSetupWSL {
 	function setupDebian {
 		Write-Host "Configuring Debian..."
 		$lowercaseJS = $env:JS.ToLower()
-		$caracterquejode = ":"
-		$caracterquepongo = "/"
-		$lowercaseJS = $lowercaseJS.Replace($caracterquejode, $caracterquepongo)
+		$caracter_que_jode = ":"
+		$caracter_que_pongo = "/"
+		$lowercaseJS = $lowercaseJS.Replace($caracter_que_jode, $caracter_que_pongo)
 		# bash "/mnt/$lowercaseJS/.config/config.bash.sh"
 		bash "/mnt/$lowercaseJS/.config/config.bash.sh" $lowercaseJS
 	}
@@ -64,4 +46,19 @@ function setupwsl {
 	wsl --set-default-version 2
 
 	setupDebian
+}
+
+function Set-fnmPersonalSetup {
+	Import-Module -Name PSSQLite
+	$query = 'SELECT * FROM Applications WHERE "source" = 7 AND i_use_that = 1'
+	$AplicationsList = Invoke-SqliteQuery -DataSource ".\.data\main.db" -Query $query
+	if ($AplicationsList) {
+		$AplicationsList | ForEach-Object {
+			Write-Host "fnm install $($_.id)"
+			# fnm install $_.id
+		}
+	}
+	# fnm env --corepack-enabled
+	# corepack enable pnpm
+	# corepack use pnpm@latest
 }

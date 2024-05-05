@@ -75,19 +75,23 @@ function Write-Env {
 
     $RegisterKey = if ($global) {
         Get-Item -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager'
-    } else {
+    }
+    else {
         Get-Item -Path 'HKCU:'
     }
 
     $EnvRegisterKey = $RegisterKey.OpenSubKey('Environment', $true)
     if ($val -eq $null) {
         $EnvRegisterKey.DeleteValue($name)
-    } else {
+    }
+    else {
         $RegistryValueKind = if ($val.Contains('%')) {
             [Microsoft.Win32.RegistryValueKind]::ExpandString
-        } elseif ($EnvRegisterKey.GetValue($name)) {
+        }
+        elseif ($EnvRegisterKey.GetValue($name)) {
             $EnvRegisterKey.GetValueKind($name)
-        } else {
+        }
+        else {
             [Microsoft.Win32.RegistryValueKind]::String
         }
         $EnvRegisterKey.SetValue($name, $val, $RegistryValueKind)
@@ -108,7 +112,8 @@ function Add-ToPath {
         if (!($h -eq '\')) {
             $friendlyPath = "$JS_BIN" -Replace ([Regex]::Escape($h)), '~\'
             Write-InstallInfo "Adding $friendlyPath to your path."
-        } else {
+        }
+        else {
             Write-InstallInfo "Adding $JS_BIN to your path."
         }
 
@@ -135,7 +140,8 @@ function Setup {
         finally {
     
         }
-    } else {
+    }
+    else {
         winget.exe install --id Git.Git -e --source winget
     }
 }
