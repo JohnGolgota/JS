@@ -117,8 +117,9 @@ function Setup {
         finally {
     
         }
+    } else {
+        winget.exe install --id Git.Git -e --source winget
     }
-    winget.exe install --id Git.Git -e --source winget
 }
 
 $JS_BIN = "${HOME}\JS\bin"
