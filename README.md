@@ -3,12 +3,12 @@
 ```powershell
  # I don't think I will ever use this
  Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
- Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
+ Invoke-RestMethod -Uri https://raw.githubusercontent.com/JohnGolgota/JS/main/init.ps1 | Invoke-Expression
 ```
 
 ```powershell
  Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
- Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
+ Invoke-RestMethod -Uri https://raw.githubusercontent.com/JohnGolgota/JS/main/init.ps1 | Invoke-Expression
 ```
 
 ## Code stolen from
