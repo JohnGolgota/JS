@@ -14,27 +14,8 @@ function ScoopInstallation {
 	# Invoke-RestMethod get.scoop.sh -Proxy 'http://<ip:port>' | Invoke-Expression
 }
 
-function SetFirst {
-	# installation
-	Write-Host "Installing Git..."
-	winget install --id Git.Git -e --source winget
-	# config
-	Write-Host "Configuring Git..."
-	git config --global user.name "JohnGolgota"
-	git config --global user.email "js684new@gmail.com"
-
-	# primary repostory
-	Write-Host "Cloning primary repository..."
-	git clone https://github.com/JohnGolgota/JS.git $env:JS # ya debe existir... sino como lo clono?
-
-	# winget setup
-	# installAll
-}
 function setupNvim {
-	# packer
-	git clone https://github.com/wbthomason/packer.nvim "$env:LOCALAPPDATA\nvim-data\site\pack\packer\start\packer.nvim"
 	git clone https://github.com/JohnGolgota/nvim-config.git "$env:LOCALAPPDATA\nvim"
-
 }
 
 function installAll {
