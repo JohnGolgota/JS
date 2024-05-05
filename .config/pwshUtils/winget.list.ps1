@@ -1,71 +1,25 @@
-# Esto existe por si falla el import de winget
-$AplicationsList = @(
-	# "Git.Git"
-	# Tools
-	"GitHub.GitHubDesktop"
-	"Docker.DockerDesktop"
-	"dbeaver.dbeaver"
-	"Insomnia.Insomnia"
-	"Microsoft.XNARedist"
-	# Console Emulators
-	"Microsoft.WindowsTerminal"
-	"Mobatek.MobaXterm"
-	# Cli
-	"Microsoft.PowerShell"
-	"GitHub.cli"
-	"BurntSushi.ripgrep.MSVC"
-	"sharkdp.fd"
-	# Editores de texto y IDEs
-	"Microsoft.VisualStudioCode.Insiders"
-	"Microsoft.VisualStudioCode"
-	"Neovim.Neovim"
-	"Google.AndroidStudio"
-	"VSCodium.VSCodium"
-	# Lenguajes de programación
-	"CoreyButler.NVMforWindows"
-	"Python.Python.3.11"
-	"Rustlang.Rustup"
-	"GoLang.Go"
-	"zig.zig"
-	"rjpcomputing.luaforwindows"
-	"Oracle.JavaRuntimeEnvironment"
-	"RubyInstallerTeam.Ruby.3.1"
-	# SDKs
-	"Microsoft.WindowsSDK.10.0.22000"
-	"Oracle.JDK.18"
-	# Design y multimedia
-	"OBSProject.OBSStudio"
-	"GIMP.GIMP"
-	"Microsoft.PowerToys"
-	# Navegadores
-	"Mozilla.Firefox.DeveloperEdition"
-	# Games
-	"Valve.Steam"
-	# Remote
-	"GlavSoft.TightVNC"
-	"AnyDeskSoftwareGmbH.AnyDesk"
-	# Social
-	"Discord.Discord"
-	"Telegram.TelegramDesktop"
-	# Cloud
-	"Microsoft.OneDrive"
-	# Visual Studio
-	"Microsoft.VCRedist.2015+.x64"
-	"Microsoft.VisualStudio.2022.Community"
-	"Microsoft.VisualStudio.2022.BuildTools"
-	# Security
-	"Twilio.Authy"
-	"RonyShapiro.PasswordSafe"
-	# Opcional
-	"Highresolution.X-MouseButtonControl"
-	"Logitech.OptionsPlus"
-	"Kingston.SSDManager"
-	# productivity and office
-	"AnyAssociation.Anytype"
-	"Logseq.Logseq"
-)
+Import-Module -Name PSSQLite
 
-$AplicationsList | ForEach-Object {
-	Write-Host "winget install --id $_ -e --source winget"
-	winget install --id $_ -e --source winget
+$current_winget_path = ".\temp.json"
+if (-not (Test-Path $current_winget_path)) {
+	winget export -o $current_winget_path
 }
+
+$winget_list = Get-Content $current_winget_path | ConvertFrom-Json
+$winget_list.Sources.Packages | ForEach-Object {
+	$query = "SELECT * FROM Applications WHERE id LIKE '%$($_.PackageIdentifier)%' AND source = 1"
+	$AplicationsList = Invoke-SqliteQuery -DataSource ".\.data\main.db" -Query $query
+	if ($AplicationsList) {
+		write-host "if $($_.PackageIdentifier)"
+		return
+	}
+	$query = "INSERT INTO Applications (id, name, source, i_use_that) VALUES ('$($_.PackageIdentifier)', '$($_.PackageIdentifier)', 1, 2)"
+	Invoke-SqliteQuery -DataSource ".\.data\main.db" -Query $query
+}
+
+$query = "SELECT * FROM Applications WHERE install = 1 AND 'source' = 1"
+
+# $AplicationsList | ForEach-Object {
+# 	Write-Host "winget install --id $_ -e --source winget"
+# 	# winget install --id $_ -e --source winget
+# }

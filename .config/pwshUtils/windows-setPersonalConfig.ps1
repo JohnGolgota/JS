@@ -1,6 +1,8 @@
-function  WingetInstallation {
+function Install-My-PS-Modules {
 	Write-Host "Installing winget..."
 	Install-Module -Name Microsoft.WinGet.Client
+	Write-Host "Instala el módulo PSSQLite desde PowerShell Gallery"
+	Install-Module -Name PSSQLite
 }
 
 function ScoopInstallation {
