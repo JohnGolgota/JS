@@ -1,4 +1,4 @@
-. $env:JS/bin\pwshModuls\Alias_enum.ps1 #Alias
+. $env:JS\bin\pwshModuls\Alias_enum.ps1 #Alias
 
 Write-Host "Creating Bash profile"
 New-Item ~/.bash_aliases -Type File -Force -ErrorAction SilentlyContinue
@@ -11,4 +11,6 @@ $Alias.GetEnumerator() | ForEach-Object {
 
 
 New-Item ~/.bashrc -Type File -Force -ErrorAction SilentlyContinue
-Add-Content -Path ~/.bashrc -Value "source ~/.bash_aliases"
+Add-Content -Path ~/.bashrc -Value @"
+source ~/.bash_aliases
+"@

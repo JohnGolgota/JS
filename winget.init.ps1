@@ -1,3 +1,16 @@
+# I tried very hard...
+# to be something i will never use
+<#
+.SYNOPSIS
+    This script downloads and installs the winget-cli package.
+.DESCRIPTION
+    This script automates the download and installation of the winget-cli package.
+    Following the instructions from the official documentation: https://learn.microsoft.com/en-us/windows/iot/iot-enterprise/deployment/install-winget-windows-iot
+    or last tried to do it.
+.NOTES
+    non-automated updating
+    i could not figure out how to automate the updating of the winget-cli package.
+#>
 #Region Dowload the winget-cli package
 # Paths and URIs for the winget-cli package
 $licence = @{
@@ -19,7 +32,7 @@ $Microsoft_VCLibs = @{
 }
 $Arquitecture = Read-Host -Prompt @"
 Enter the architecture of the Microsoft VCLibs
-1 : x64, 
+1 : x64
 2 : arm64
 
 "@

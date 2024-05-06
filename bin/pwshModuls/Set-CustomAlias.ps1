@@ -6,5 +6,4 @@ $Alias.GetEnumerator() | ForEach-Object {
     if (Get-Command $value -ErrorAction SilentlyContinue) {
         Set-Alias -Name $name -Value $value -Option AllScope -Scope Global
     }
-
 }

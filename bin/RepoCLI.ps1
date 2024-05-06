@@ -1,11 +1,11 @@
 param (
-[ValidateSet('fuck')]
+[ValidateSet('seriedad')]
 [string]$Repo = "NoRepoProvided"
 )
 try {
 Write-Host "Repo: $Repo"
 $repos = @{
-"fuck" = "c"
+"seriedad" = "c"
 }
 if ($repos.ContainsKey($Repo)) {
 code-insiders $repos[$Repo]
