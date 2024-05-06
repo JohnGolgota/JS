@@ -6,11 +6,11 @@ $RepoCLIPath = $MyPaths[1]
 function Test-RepoCLIDependencies {
     if (-not(Test-Path $RepoHashPath)) {
         Write-Host "Creando archivo $RepoHashPath"
-        New-Item $RepoHashPath -ErrorAction SilentlyContinue
+        New-Item -Path $RepoHashPath -ErrorAction SilentlyContinue
     }
     if (-not(Test-Path $RepoCLIPath)) {
         Write-Host "Creando archivo $RepoCLIPath"
-        New-Item $RepoCLIPath -ErrorAction SilentlyContinue
+        New-Item -Path $RepoCLIPath -ErrorAction SilentlyContinue
     }
 }
 
