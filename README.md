@@ -6,6 +6,8 @@
  Invoke-RestMethod -Uri https://raw.githubusercontent.com/JohnGolgota/JS/main/winget.init.ps1 | Invoke-Expression
 ```
 
+## init
+
 ```powershell
  Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
  Invoke-RestMethod -Uri https://raw.githubusercontent.com/JohnGolgota/JS/main/init.ps1 | Invoke-Expression
