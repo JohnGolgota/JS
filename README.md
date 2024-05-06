@@ -16,6 +16,7 @@
 ## Thigs
 
 - [ssh and gpg](./notas/sshAndGPG.md#ssh-and-gpg-info)
+- [Config](./.config/README.md)
 
 ## Code stolen from
 
