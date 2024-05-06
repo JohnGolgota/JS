@@ -1,4 +1,8 @@
-Import-Module -Name PSSQLite
+. $env:JS\.config\pwshUtils\Applications.Repository.ps1
+$DATA_SOURCE = ".\.data\main.db"
+$Applications = New-Object Applications
+$Applications_names = $Applications.getApplications()
+$applicationsRepository = New-Object ApplicationsRepository -ArgumentList $DATA_SOURCE, $Applications_names
 
 $current_winget_path = ".\temp.json"
 if (-not (Test-Path $current_winget_path)) {
@@ -7,6 +11,7 @@ if (-not (Test-Path $current_winget_path)) {
 
 $winget_list = Get-Content $current_winget_path | ConvertFrom-Json
 $winget_list.Sources.Packages | ForEach-Object {
+	# $AplicationsList = $applicationsRepository.GetByParam(@{id = "%$($_.PackageIdentifier)%"}, $true)
 	$query = "SELECT * FROM Applications WHERE id LIKE '%$($_.PackageIdentifier)%' AND source = 1"
 	$AplicationsList = Invoke-SqliteQuery -DataSource ".\.data\main.db" -Query $query
 	if ($AplicationsList) {

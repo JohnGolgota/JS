@@ -1,9 +1,10 @@
+Import-Module -Name PSSQLite
+
 class ApplicationsRepository {
     [string] $DataSource
     [Applications] $Applications
     [bool] $nose = $false
     ApplicationsRepository($DataSource, $Applications) {
-        Import-Module -Name PSSQLite
         $this.DataSource = $DataSource
         $this.Applications = $Applications
     }
@@ -12,13 +13,16 @@ class ApplicationsRepository {
         $whereQuery = $this.buildWhereQuery($param)
         $query = "$($selectQuery) $whereQuery"
         $res = Invoke-SqliteQuery -DataSource $this.DataSource -Query $query
-        Write-Host $res
         return $res
     }
-    [string] buildWhereQuery([hashtable] $param) {
+    [string] buildWhereQuery([hashtable] $param, [bool] $nose = $false) {
         $query = @()
+        $comparator = switch ($nose) {
+            $true { "like" }
+            $false { "=" }
+        }
         $param.GetEnumerator() | ForEach-Object {
-            $query += "$($_.Key) = '$($_.Value)'"
+            $query += "$($_.Key) $comparator '$($_.Value)'"
         }
         if (-not($this.nose)){
             $query += "i_use_that = 1"

@@ -1,3 +1,8 @@
+. $env:JS\.config\pwshUtils\Applications.Repository.ps1
+$DATA_SOURCE = ".\.data\main.db"
+$Applications = New-Object Applications
+$Applications_names = $Applications.getApplications()
+$applicationsRepository = New-Object ApplicationsRepository -ArgumentList $DATA_SOURCE, $Applications_names
 function Install-MyPSModules {
 	Write-Host "Installing winget..."
 	Install-Module -Name Microsoft.WinGet.Client
@@ -49,16 +54,13 @@ function Set-PersonalSetupWSL {
 }
 
 function Set-fnmPersonalSetup {
-	Import-Module -Name PSSQLite
-	$query = 'SELECT * FROM Applications WHERE "source" = 7 AND i_use_that = 1'
-	$AplicationsList = Invoke-SqliteQuery -DataSource ".\.data\main.db" -Query $query
+	$AplicationsList = $applicationsRepository.GetByParam(@{attr_source = 7})
 	if ($AplicationsList) {
 		$AplicationsList | ForEach-Object {
-			Write-Host "fnm install $($_.id)"
-			# fnm install $_.id
+			fnm install $_.id
 		}
 	}
-	# fnm env --corepack-enabled
-	# corepack enable pnpm
-	# corepack use pnpm@latest
+	fnm env --corepack-enabled
+	corepack enable pnpm
+	corepack use pnpm@latest
 }
