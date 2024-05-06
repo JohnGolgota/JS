@@ -2,6 +2,7 @@ function Set-CustomMain {
     try {
         . $Env:JS\bin\pwshModuls\Set-CustomAlias.ps1
         . $Env:JS\bin\RepoCli-Utils.ps1
+        . $Env:JS\.config\profile.pwsh.ps1
     }
     catch {
         Write-Host "Error: $($_.Exception.Message)"
