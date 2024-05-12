@@ -4,7 +4,7 @@ if (-not (Test-Path $PROFILE)) {
 }
 Set-Content -Path $PROFILE -Value ""
 
-Add-Content -Path $PROFILE -Value ". $Env:JS\bin\Custom_Funciones.ps1"
+Add-Content -Path $PROFILE -Value ". $Env:JS\bin\Custom_Functions.ps1"
 Add-Content -Path $PROFILE -Value ". $Env:JS\bin\RepoCli-Utils.ps1"
 Add-Content -Path $PROFILE -Value ". $Env:JS\bin\PS_Alias.ps1"
 
