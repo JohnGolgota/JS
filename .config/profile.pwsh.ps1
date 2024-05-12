@@ -27,7 +27,7 @@ if (Get-Command "fnm" -ErrorAction SilentlyContinue) {
 }
 
 if ($IsLinux) {
-	$env:Path = "/home/js/.cargo/bin:`$env:Path"
+	Add-Content -Path $PROFILE -Value "`n`$env:Path = `"/home/js/.cargo/bin:`$env:Path`""
 	Set-NoWindowsEnvs
 }
 if ($IsMacOS) {
