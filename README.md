@@ -17,6 +17,7 @@
 
 - [ssh and gpg](./notas/sshAndGPG.md#ssh-and-gpg-info)
 - [Config](./.config/README.md)
+- [pwsh](./notas/pwsh.md)
 
 ## Code stolen from
 
