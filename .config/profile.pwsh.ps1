@@ -26,6 +26,11 @@ if (Get-Command "fnm" -ErrorAction SilentlyContinue) {
 	Add-Content -Path $PROFILE -Value "`nfnm env --use-on-cd | Out-String | Invoke-Expression"
 }
 
+if (Get-Command "starship" -ErrorAction SilentlyContinue) {
+	Add-Content -Path $PROFILE -Value "`nInvoke-Expression (&starship init powershell)"
+}
+
+
 if ($IsLinux) {
 	Add-Content -Path $PROFILE -Value "`n`$env:Path = `"/home/js/.cargo/bin:`$env:Path`""
 	Set-NoWindowsEnvs
