@@ -1,7 +1,7 @@
 function Set-NoWindowsEnvs {
-	Add-Content -Path $PROFILE -Value "`n`$env:JS = `"$env:HOME/JS`""
-	Add-Content -Path $PROFILE -Value "`$env:PATH = `"$env:JS/bin:`$env:PATH`""
-	Add-Content -Path $PROFILE -Value "`$env:MY_PATHS = `"$env:JS/bin/pwshModuls/privare_h.ps1;$env:JS/bin/repo.ps1`""
+	Add-Content -Path $PROFILE -Value "`n`$Env:JS = `"$Env:HOME/JS`""
+	Add-Content -Path $PROFILE -Value "`$Env:PATH = `"$Env:JS/bin:`$Env:PATH`""
+	Add-Content -Path $PROFILE -Value "`$Env:MY_PATHS = `"$Env:JS/privare_h.ps1;$Env:JS/bin/repo.ps1`""
 	Add-Content -Path $PROFILE -Value "`n. $Env:JS/bin/Custom_Functions.ps1"
 	Add-Content -Path $PROFILE -Value ". $Env:JS/bin/RepoCli-Utils.ps1"
 	Add-Content -Path $PROFILE -Value ". $Env:JS/bin/PS_Alias.ps1"
@@ -32,7 +32,7 @@ if (Get-Command "starship" -ErrorAction SilentlyContinue) {
 
 
 if ($IsLinux) {
-	Add-Content -Path $PROFILE -Value "`n`$env:Path = `"/home/js/.cargo/bin:`$env:Path`""
+	Add-Content -Path $PROFILE -Value "`n`$Env:PATH = `"/home/js/.cargo/bin:`$Env:PATH`""
 	Set-NoWindowsEnvs
 }
 if ($IsMacOS) {
