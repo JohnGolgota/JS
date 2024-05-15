@@ -61,7 +61,6 @@ function Add-ToRepoCLI {
         [Parameter(Mandatory = $true)]
         [string]$NewRepoName,
 
-        [Parameter(Mandatory = $true)]
         [string]$NewRepoPath = (Get-Location).Path
     )
     try {
