@@ -1,7 +1,7 @@
 function Set-NoWindowsEnvs {
 	Add-Content -Path $PROFILE -Value "`n`$Env:JS = `"$Env:HOME/JS`""
 	Add-Content -Path $PROFILE -Value "`$Env:PATH = `"$Env:JS/bin:`$Env:PATH`""
-	Add-Content -Path $PROFILE -Value "`$Env:MY_PATHS = `"$Env:JS/privare_h.ps1;$Env:JS/bin/repo.ps1`""
+	Add-Content -Path $PROFILE -Value "`$Env:MY_PATHS = `"$Env:JS/private_h.ps1;$Env:JS/bin/repo.ps1`""
 	Add-Content -Path $PROFILE -Value "`n. $Env:JS/bin/Custom_Functions.ps1"
 	Add-Content -Path $PROFILE -Value ". $Env:JS/bin/RepoCli-Utils.ps1"
 	Add-Content -Path $PROFILE -Value ". $Env:JS/bin/PS_Alias.ps1"

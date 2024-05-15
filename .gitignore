@@ -4,10 +4,11 @@ personal*/*
 bin/*api*.cmd
 bin/*o.ps1
 bin/*o.cmd
-private_*
+private*
 !public_*
 api.git
 no
 Si
 .env
 PS_Alias.ps1
+repo.ps1
