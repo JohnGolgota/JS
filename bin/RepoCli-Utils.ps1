@@ -62,17 +62,13 @@ function Add-ToRepoCLI {
         [string]$NewRepoName,
 
         [Parameter(Mandatory = $true)]
-        [string]$NewRepoPath,
-
-        [bool]$Force = $false
+        [string]$NewRepoPath = (Get-Location).Path
     )
     try {
         Test-RepoCLIDependencies
 
         $RepoHash = @{}
-        if ($Force -eq $false) {
-            . $RepoHashPath
-        }
+        . $RepoHashPath
         # TODO validate if repo exists
         $RepoHash.Add($NewRepoName, $NewRepoPath)
         Write-RepoCLIParams -RepoHash $RepoHash
