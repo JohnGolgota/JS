@@ -14,14 +14,14 @@ function Test-RepoCLIDependencies {
     }
 }
 
-Test-RepoCLIDependencies
-
 function Write-RepoCLIParams {
     param (
         [Parameter(Mandatory = $true)]
         [hashtable]$RepoHash
     )
     try {
+        Test-RepoCLIDependencies
+
         $RepoNames = @()
         Set-Content -Path $RepoHashPath -Value '$RepoHash = @{'
         foreach ($Repo in $RepoHash.GetEnumerator()) {
@@ -44,6 +44,8 @@ function Remove-ToRepoCLI {
         [string]$RepoToRemove
     )
     try {
+        Test-RepoCLIDependencies
+
         $RepoHash = @{}
         . $RepoHashPath
         $RepoHash.Remove($RepoToRemove)
@@ -65,6 +67,8 @@ function Add-ToRepoCLI {
         [bool]$Force = $false
     )
     try {
+        Test-RepoCLIDependencies
+
         $RepoHash = @{}
         if ($Force -eq $false) {
             . $RepoHashPath
@@ -80,6 +84,8 @@ function Add-ToRepoCLI {
 }
 function Get-RepoCLI {
     try {
+        Test-RepoCLIDependencies
+
         $RepoHash = @{}
         . $RepoHashPath
         $RepoHash.GetEnumerator()
@@ -102,6 +108,7 @@ function Edit-RepoCLI {
         [switch]$OnlyName = $false
     )
     try {
+        Test-RepoCLIDependencies
 
         $RepoHash = @{}
         . $RepoHashPath
@@ -146,6 +153,8 @@ function Edit-RepoCLI {
 
 }
 function Build-RepoCLI {
+    Test-RepoCLIDependencies
+
     $RepoHash = @{}
     $RepoNames = @()
     . $RepoHashPath
