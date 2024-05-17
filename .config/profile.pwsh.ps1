@@ -36,6 +36,7 @@ if ($IsLinux) {
 	Set-NoWindowsEnvs
 }
 if ($IsMacOS) {
+	Add-Content -Path $PROFILE -Value "`n`$Env:PATH = `"/opt/homebrew/opt/openjdk/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/Applications/Docker.app/Contents/Resources/bin:`$Env:PATH`""
 	Set-NoWindowsEnvs
 }
 if ($IsWindows) {
