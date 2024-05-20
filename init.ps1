@@ -130,7 +130,7 @@ function Setup {
             git clone https://github.com/JohnGolgota/JS.git ${HOME}\JS
             Write-Env -name 'JS' -val ${HOME}\JS -global
             Add-ToPath
-            Write-Env -name 'MY_PATHS' -val "${HOME}\JS\bin\pwshModuls\RepoCli\private_hashtable.ps1;${HOME}\JS\bin\repo.ps1;"
+            Write-Env -name 'MY_PATHS' -val "${HOME}\JS\h.ps1;${HOME}\JS\bin\repo.ps1;"
         }
     
         catch {
