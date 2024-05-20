@@ -24,7 +24,7 @@ Set-Content -Path $PROFILE -Value ""
 Add-Content -Path $PROFILE -Value "Set-PSReadLineOption -EditMode Windows"
 
 if ($IsLinux) {
-	Add-Content -Path $PROFILE -Value "`n`$Env:PATH = `"/home/js/.cargo/bin:`$Env:PATH`""
+	Add-Content -Path $PROFILE -Value "`n`$Env:PATH = `"${HOME}/.cargo/bin:`$Env:PATH`""
 	Set-NoWindowsEnvs
 }
 if ($IsMacOS) {
