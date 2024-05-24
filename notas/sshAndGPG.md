@@ -10,6 +10,7 @@ ssh-keygen -t ed25519 -C "104475729+JohnGolgota@users.noreply.github.com"
 gpg --full-generate-key
 gpg --list-secret-keys --keyid-format=long
 # add github
+gpg --armor --export 3AA5C34371567BD
 
 git config --global --unset gpg.format
 # this a example... I am clarifying this because I know that I will forget it
