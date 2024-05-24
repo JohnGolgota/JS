@@ -28,7 +28,7 @@ $query = 'SELECT * FROM Applications WHERE installed = 0 AND attr_source = 1 AND
 $AplicationsList = Invoke-SqliteQuery -DataSource ".\.data\main.db" -Query $query
 if ($AplicationsList) {
 	$AplicationsList | ForEach-Object {
-		Write-Host "winget install --id $_ -e --source winget"
-		# winget install --id $_ -e --source winget
+		# Write-Host "winget install --id $_.id -e --source winget"
+		winget install --id $_.id -e --source winget
 	}
 }
