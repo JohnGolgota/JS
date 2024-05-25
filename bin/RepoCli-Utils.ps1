@@ -3,28 +3,34 @@ $MyPaths = $env:MY_PATHS -split ";"
 $RepoHashPath = $MyPaths[0]
 $RepoCLIPath = $MyPaths[1]
 
-function Test-RepoCLIDependencies {
-    if (-not(Test-Path $RepoHashPath)) {
+function Test-RepoCLIDependencies
+{
+    if (-not(Test-Path $RepoHashPath))
+    {
         Write-Host "Creando archivo $RepoHashPath"
         New-Item -Path $RepoHashPath -ErrorAction SilentlyContinue
     }
-    if (-not(Test-Path $RepoCLIPath)) {
+    if (-not(Test-Path $RepoCLIPath))
+    {
         Write-Host "Creando archivo $RepoCLIPath"
         New-Item -Path $RepoCLIPath -ErrorAction SilentlyContinue
     }
 }
 
-function Write-RepoCLIParams {
+function Write-RepoCLIParams
+{
     param (
         [Parameter(Mandatory = $true)]
         [hashtable]$RepoHash
     )
-    try {
+    try
+    {
         Test-RepoCLIDependencies
 
         $RepoNames = @()
         Set-Content -Path $RepoHashPath -Value '$RepoHash = @{'
-        foreach ($Repo in $RepoHash.GetEnumerator()) {
+        foreach ($Repo in $RepoHash.GetEnumerator())
+        {
             Add-Content -Path $RepoHashPath -value "`"$($Repo.Key)`"=`"$($Repo.Value)`""
             # array from hashtable keys
             $RepoNames += $Repo.Key
@@ -33,17 +39,19 @@ function Write-RepoCLIParams {
 
         $RepoNamesJoin = $RepoNames -join "','"
         Add-Content -Path $RepoHashPath -value $('$RepoNames = @(' + "'$RepoNamesJoin'" + ')')
-    }
-    catch {
+    } catch
+    {
         Write-Host "Error: $($_.Exception.Message)"
     }
 }
-function Remove-ToRepoCLI {
+function Remove-ToRepoCLI
+{
     param (
         [Parameter(Mandatory = $true)]
         [string]$RepoToRemove
     )
-    try {
+    try
+    {
         Test-RepoCLIDependencies
 
         $RepoHash = @{}
@@ -51,20 +59,22 @@ function Remove-ToRepoCLI {
         $RepoHash.Remove($RepoToRemove)
         Write-RepoCLIParams -RepoHash $RepoHash
         Build-RepoCLI
-    }
-    catch {
+    } catch
+    {
         Write-Host "Error: $($_.Exception.Message)"
     }
 }
-function Add-ToRepoCLI {
+function Add-ToRepoCLI
+{
     param (
-        [Parameter(Mandatory = $true)]
-        [string]$NewRepoName,
+        [string]$NewRepoName = (Get-Item (Get-Location).Path).Name,
 
         [string]$NewRepoPath = (Get-Location).Path
     )
-    try {
+    try
+    {
         Test-RepoCLIDependencies
+
 
         $RepoHash = @{}
         . $RepoHashPath
@@ -72,24 +82,27 @@ function Add-ToRepoCLI {
         $RepoHash.Add($NewRepoName, $NewRepoPath)
         Write-RepoCLIParams -RepoHash $RepoHash
         Build-RepoCLI
-    }
-    catch {
+    } catch
+    {
         Write-Host "Error: $($_.Exception.Message)"
     }
 }
-function Get-RepoCLI {
-    try {
+function Get-RepoCLI
+{
+    try
+    {
         Test-RepoCLIDependencies
 
         $RepoHash = @{}
         . $RepoHashPath
         $RepoHash.GetEnumerator()
-    }
-    catch {
+    } catch
+    {
         Write-Host "Error: $($_.Exception.Message)"
     }
 }
-function Edit-RepoCLI {
+function Edit-RepoCLI
+{
     param (
         [Parameter(Mandatory = $true, ValueFromPipeline = $true)]
         [string]$RepoToEdit,
@@ -102,7 +115,8 @@ function Edit-RepoCLI {
 
         [switch]$OnlyName = $false
     )
-    try {
+    try
+    {
         Test-RepoCLIDependencies
 
         $RepoHash = @{}
@@ -111,43 +125,48 @@ function Edit-RepoCLI {
 
 
         Write-Host "Confirmación de parámetros: NewRepoPath: $NewRepoPath, NewName: $NewName, OnlyName: $OnlyName"
-        if (-not $RepoHash.ContainsKey($RepoToEdit)) {
+        if (-not $RepoHash.ContainsKey($RepoToEdit))
+        {
             throw "El repositorio '$RepoToEdit' no existe, no se puede editar. Las opciones válidas son: $($RepoHash.Keys -join ', ')"
         }
         Write-Host "El repositorio '$RepoToEdit' existe"
-        if ($NewRepoPath -eq "" -or $null -eq $NewRepoPath) {
+        if ($NewRepoPath -eq "" -or $null -eq $NewRepoPath)
+        {
             $NewRepoPath = $RepoHash[$RepoToEdit]
             Write-Host "No se ha proporcionado un nuevo directorio para el repositorio, se usará el actual"
         }
-        if (-not (Test-Path $NewRepoPath)) {
+        if (-not (Test-Path $NewRepoPath))
+        {
             throw "El directorio '$NewRepoPath' no existe"
         }
         Write-Host "El directorio '$NewRepoPath' existe"
 
-        if ($NewName -ne "" -and $OnlyName -eq $true) {
+        if ($NewName -ne "" -and $OnlyName -eq $true)
+        {
             Write-Host "Se ha proporcionado un nuevo nombre para el repositorio"
             $RepoHash.Add($NewName, $RepoHash[$RepoToEdit])
             $RepoHash.Remove($RepoToEdit)
-        }
-        elseif ($NewName -ne "" -and $OnlyName -eq $false) {
+        } elseif ($NewName -ne "" -and $OnlyName -eq $false)
+        {
             Write-Host "Se ha proporcionado un nuevo nombre y un nuevo directorio para el repositorio"
             $RepoHash.Remove($RepoToEdit)
             $RepoHash.Add($NewName, $NewRepoPath)
-        }
-        else {
+        } else
+        {
             Write-Host "Se ha proporcionado un nuevo directorio para el repositorio"
             $RepoHash[$RepoToEdit] = $NewRepoPath
         }
 
         Write-RepoCLIParams -RepoHash $RepoHash
         Build-RepoCLI
-    }
-    catch {
+    } catch
+    {
         Write-Host "Error: $($_.Exception.Message)"
     }
 
 }
-function Build-RepoCLI {
+function Build-RepoCLI
+{
     Test-RepoCLIDependencies
 
     $RepoHash = @{}
@@ -164,7 +183,8 @@ function Build-RepoCLI {
 
         `$repos = @{
 "@
-    foreach ($Repo in $RepoHash.GetEnumerator()) {
+    foreach ($Repo in $RepoHash.GetEnumerator())
+    {
         Add-Content -Path $RepoCLIPath -Value "`"$($Repo.Key)`" = `"$($Repo.Value)`""
     }
     Add-Content -Path $RepoCLIPath -Value @"
