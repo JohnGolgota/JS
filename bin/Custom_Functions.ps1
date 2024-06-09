@@ -54,3 +54,7 @@ function Update-JS
     git pull
     Set-Location $currentDir
 }
+
+function Zellij-Attach {
+    zsh -l -c zellij attach --index 0 || zsh
+}
