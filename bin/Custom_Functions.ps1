@@ -55,6 +55,7 @@ function Update-JS
     Set-Location $currentDir
 }
 
-function Zellij-Attach {
-    zsh -l -c zellij attach --index 0 || zsh
+function Zellij-Attach
+{
+    zellij a --index 0 || zellij
 }

@@ -1,9 +1,11 @@
 $Alias = @{
     "x" = "nvim"
     "c" = "code-insiders"
-    "z" = "tmux"
-    "a" = "repo"
-    "g" = "gitui"
-    "v" = "Zellij-Attach"
     "vv" = "zellij"
+    "gg" = "gitui"
+    "g" = "git"
+    "p" = "pwsh"
+    "v" = "Zellij-Attach"
+
+    "a" = "repo"
 }
