@@ -5,15 +5,15 @@
 - [ ] 258 blinding baby use blank card while holding xix the sun
 - [ ] 321 once more with feeling 1 vitory lap
 - [ ] 325 participe in 31 daily challenges
-- [ ] 326 defeat the lamb in under 20 minutes
-- [ ] 327 defeat the lamb without picks
-- [ ] 328 reset 7 times
+- [x] 326 defeat the lamb in under 20 minutes
+- [x] 327 defeat the lamb without picks
+- [x] 328 reset 7 times
 - [ ] 336 get a 5 win streak in the daily challenge
 - [ ] 337 complete 3 vitory laps
 - [ ] 354 complete 7 daily challenges
 - [ ] 360 complete 2 vitory laps
 - [ ] 361 increase size 5 times
-- [ ] 365 use pandoras box in dark room
+- [x] 365 use pandoras box in dark room
 - [ ] 386 use 5 glup pills in a run
 - [ ] 512 pica run - defeat moms heart 11 times and unlock marbles
 - [ ] 522 complete pica run
