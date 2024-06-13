@@ -3,7 +3,7 @@
 - [ ] 84 real platinum god todos los items de verdad sin dlc's
 - [ ] 148 the d4 blow up 30 slot machine
 - [ ] 258 blinding baby use blank card while holding xix the sun
-- [ ] 321 once more with feeling 1 vitory lap
+- [x] 321 once more with feeling 1 vitory lap
 - [ ] 325 participe in 31 daily challenges
 - [x] 326 defeat the lamb in under 20 minutes
 - [x] 327 defeat the lamb without picks
@@ -11,7 +11,7 @@
 - [ ] 336 get a 5 win streak in the daily challenge
 - [ ] 337 complete 3 vitory laps
 - [ ] 354 complete 7 daily challenges
-- [ ] 360 complete 2 vitory laps
+- [x] 360 complete 2 vitory laps
 - [ ] 361 increase size 5 times
 - [x] 365 use pandoras box in dark room
 - [ ] 386 use 5 glup pills in a run
