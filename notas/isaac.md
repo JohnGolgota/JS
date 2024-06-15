@@ -1,4 +1,4 @@
-- [ ] 64 dona - vida o monedas
+- [x] 64 dona - vida o monedas
 - [ ] 69 platinum god todos los items sin dlc's
 - [ ] 84 real platinum god todos los items de verdad sin dlc's
 - [ ] 148 the d4 blow up 30 slot machine
@@ -13,7 +13,7 @@
 - [ ] 354 complete 7 daily challenges
 - [x] 360 complete 2 vitory laps
 - [ ] 361 increase size 5 times
-- [x] 365 use pandoras box in dark room
+- [x] 366 use pandoras box in dark room
 - [ ] 386 use 5 glup pills in a run
 - [ ] 512 pica run - defeat moms heart 11 times and unlock marbles
 - [ ] 522 complete pica run
