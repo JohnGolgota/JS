@@ -4,7 +4,6 @@
 - [ ] 258 blinding baby use blank card while holding xix the sun
 - [ ] 325 participe in 31 daily challenges
 - [ ] 336 get a 5 win streak in the daily challenge
-- [x] 337 complete 3 vitory laps
 - [ ] 354 complete 7 daily challenges
 - [ ] 361 increase size 5 times
 - [ ] 386 use 5 glup pills in a run
