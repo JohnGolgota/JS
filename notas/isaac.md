@@ -6,7 +6,4 @@
 - [ ] 336 get a 5 win streak in the daily challenge
 - [ ] 354 complete 7 daily challenges
 - [ ] 361 increase size 5 times
-- [x] 386 use 5 glup pills in a run
-- [x] 512 pica run - defeat moms heart 11 times and unlock marbles
-- [x] 522 complete pica run
 - [ ] 545 kill 10 battery bums
