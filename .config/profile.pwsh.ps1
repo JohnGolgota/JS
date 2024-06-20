@@ -68,3 +68,8 @@ if (Get-Command "starship" -ErrorAction SilentlyContinue)
 {
 	Add-Content -Path $PROFILE -Value "`nInvoke-Expression (&starship init powershell)"
 }
+
+if (Get-Command "zoxide" -ErrorAction SilentlyContinue)
+{
+	Add-Content -Path $PROFILE -Value "`nInvoke-Expression (& { (zoxide init powershell | Out-String) })"
+}
