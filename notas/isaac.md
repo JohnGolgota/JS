@@ -4,7 +4,7 @@
 - [ ] 258 blinding baby use blank card while holding xix the sun
 - [ ] 325 participe in 31 daily challenges
 - [ ] 336 get a 5 win streak in the daily challenge
-- [ ] 354 complete 7 daily challenges
+- [x] 354 complete 7 daily challenges
 - [ ] 361 increase size 5 times
 - [ ] 545 kill 10 battery bums
 - [ ] all secrets
