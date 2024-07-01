@@ -22,3 +22,5 @@
 ## Code stolen from
 
 - [scoop.sh](https://github.com/ScoopInstaller/Scoop): handling of env's stolen from
+
+Que es esto?
