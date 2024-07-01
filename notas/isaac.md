@@ -7,3 +7,4 @@
 - [ ] 354 complete 7 daily challenges
 - [ ] 361 increase size 5 times
 - [ ] 545 kill 10 battery bums
+- [ ] all secrets
