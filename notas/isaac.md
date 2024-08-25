@@ -4,3 +4,28 @@
 - [ ] all secrets
 
 missing no.
+isaacs heart
+d100
+d4
+the jar
+d12
+mega blast
+shard of glass
+shade
+wait what?
+crooked penny
+brown nugget
+lil spewer
+hallowed ground
+dad's ring
+jaw bone
+rock bottom
+star of bethlehem
+vade retro
+binge eater
+spirit shackles
+- [ ] jar of wisps
+- [ ] friend finder
+- [ ] echo chamber
+- [ ] esau jr.
+- [ ] decap attack
