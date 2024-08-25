@@ -22,7 +22,7 @@ jaw bone
 rock bottom
 star of bethlehem
 vade retro
-binge eater
+- [ ] binge eater
 spirit shackles
 - [ ] jar of wisps
 - [ ] friend finder
