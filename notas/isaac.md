@@ -10,7 +10,7 @@ the jar
 d12
 mega blast
 shard of glass
-shade
+- [ ] shade
 wait what?
 crooked penny
 brown nugget
