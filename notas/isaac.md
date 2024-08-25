@@ -4,3 +4,5 @@
 - [ ] 336 get a 5 win streak in the daily challenge
 - [ ] 545 kill 10 battery bums
 - [ ] all secrets
+
+a dollar
