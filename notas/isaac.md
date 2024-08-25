@@ -16,14 +16,14 @@ crooked penny
 brown nugget
 lil spewer
 hallowed ground
-dad's ring
+- [ ] dad's ring
 jaw bone
 rock bottom
 star of bethlehem
-vade retro
+- [x] vade retro
 spirit shackles
 - [ ] jar of wisps
 - [ ] friend finder
-- [ ] echo chamber
+- [x] echo chamber
 - [ ] esau jr.
 - [ ] decap attack
