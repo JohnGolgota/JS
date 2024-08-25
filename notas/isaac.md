@@ -4,7 +4,7 @@
 - [ ] all secrets
 
 missing no.
-isaacs heart
+- [ ] isaacs heart
 d100
 d4
 the jar
@@ -22,7 +22,6 @@ jaw bone
 rock bottom
 star of bethlehem
 vade retro
-- [x] binge eater
 spirit shackles
 - [ ] jar of wisps
 - [ ] friend finder
