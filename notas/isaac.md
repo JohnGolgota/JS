@@ -10,20 +10,17 @@ the jar
 d12
 mega blast
 shard of glass
-- [x] shade
 wait what?
 crooked penny
 brown nugget
 lil spewer
 hallowed ground
-- [ ] dad's ring
+- [x] dad's ring
 jaw bone
 rock bottom
 star of bethlehem
-- [x] vade retro
 spirit shackles
 - [ ] jar of wisps
 - [ ] friend finder
-- [x] echo chamber
 - [ ] esau jr.
 - [ ] decap attack
