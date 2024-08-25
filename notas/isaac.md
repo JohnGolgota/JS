@@ -2,25 +2,24 @@
 - [ ] 84 real platinum god todos los items de verdad sin dlc's
 - [ ] 336 get a 5 win streak in the daily challenge
 - [ ] all secrets
-
-missing no.
-d100
-d4
-the jar
-d12
-mega blast
-shard of glass
-wait what?
-crooked penny
-brown nugget
-lil spewer
-hallowed ground
-- [x] dad's ring
-jaw bone
-rock bottom
-star of bethlehem
-spirit shackles
-- [ ] jar of wisps
-- [ ] friend finder
-- [ ] esau jr.
-- [ ] decap attack
+Numero de pagina,y,x,nombre
+- [ ] 3 1 14 missing no.
+- [ ] 3 2 19 d100
+- [ ] 3 2 20 d4
+- [ ] 3 3 5  the jar
+- [ ] 4 2 2  d12
+- [ ] 4 4 17 mega blast
+- [ ] 4 5 4  shard of glass
+- [ ] 4 6 20 wait what?
+- [ ] 5 1 1  crooked penny
+- [ ] 5 1 20 brown nugget
+- [ ] 5 3 14 lil spewer
+- [ ] 5 3 19 hallowed ground
+- [ ] 5 4 4  jaw bone
+- [ ] 5 4 18 rock bottom
+- [ ] 6 3 2  star of bethlehem
+- [ ] 6 4 2  spirit shackles
+- [ ] 6 4 13 jar of wisps
+- [ ] 6 4 15 friend finder
+- [ ] 6 5 11 esau jr.
+- [ ] 6 6 14 decap attack
