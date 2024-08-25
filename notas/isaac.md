@@ -22,4 +22,4 @@ Numero de pagina,y,x,nombre
 - [ ] 6 4 13 jar of wisps
 - [ ] 6 4 15 friend finder
 - [ ] 6 5 11 esau jr.
-- [ ] 6 6 14 decap attack
+- [x] 6 6 14 decap attack
