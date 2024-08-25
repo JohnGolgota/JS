@@ -4,7 +4,6 @@
 - [ ] all secrets
 
 missing no.
-- [x] isaacs heart
 d100
 d4
 the jar
