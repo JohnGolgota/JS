@@ -1,6 +1,7 @@
 - [ ] 69 platinum god todos los items sin dlc's
 - [ ] 84 real platinum god todos los items de verdad sin dlc's
 - [ ] all secrets
+
 Numero de pagina,y,x,nombre
 - [ ] 3 2 20 d4
 - [ ] 3 3 5  the jar
