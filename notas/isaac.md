@@ -1,6 +1,6 @@
 - [ ] 69 platinum god todos los items sin dlc's
 - [ ] 84 real platinum god todos los items de verdad sin dlc's
-- [ ] 336 get a 5 win streak in the daily challenge
+- [x] 336 get a 5 win streak in the daily challenge
 - [ ] all secrets
 Numero de pagina,y,x,nombre
 - [x] 3 1 14 missing no.
