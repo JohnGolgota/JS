@@ -1,9 +1,7 @@
 - [ ] 69 platinum god todos los items sin dlc's
 - [ ] 84 real platinum god todos los items de verdad sin dlc's
-- [x] 336 get a 5 win streak in the daily challenge
 - [ ] all secrets
 Numero de pagina,y,x,nombre
-- [x] 3 1 14 missing no.
 - [ ] 3 2 19 d100
 - [ ] 3 2 20 d4
 - [ ] 3 3 5  the jar
@@ -14,8 +12,6 @@ Numero de pagina,y,x,nombre
 - [ ] 4 6 20 wait what?
 - [ ] 5 1 1  crooked penny
 - [ ] 5 1 20 brown nugget
-- [x] 5 3 14 lil spewer
-- [x] 5 3 19 hallowed ground
 - [ ] 5 4 4  jaw bone
 - [ ] 5 4 18 rock bottom
 - [ ] 6 3 2  star of bethlehem
@@ -23,4 +19,3 @@ Numero de pagina,y,x,nombre
 - [ ] 6 4 13 jar of wisps
 - [ ] 6 4 15 friend finder
 - [ ] 6 5 11 esau jr.
-- [x] 6 6 14 decap attack
