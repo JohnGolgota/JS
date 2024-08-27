@@ -5,17 +5,17 @@
 Numero de pagina,y,x,nombre
 
 - [ ] 3 2 20 d4
-- [ ] 3 3 6  the jar
+- [x] 3 3 6  the jar
 
 - [ ] 4 2 2  d12
-- [ ] 4 4 17 mega blast
+- [x] 4 4 17 mega blast
 - [ ] 4 6 6  Husky
 - [ ] 4 6 20 wait what?
 
 - [ ] 5 1 20 brown nugget
 - [ ] 5 4 4  jaw bone
-- [ ] 5 4 18 rock bottom
+- [x] 5 4 18 rock bottom
 
 - [ ] 6 3 2  star of bethlehem
 - [ ] 6 4 13 jar of wisps
-- [ ] 6 4 15 friend finder
+- [x] 6 4 15 friend finder
