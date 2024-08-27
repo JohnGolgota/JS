@@ -1,10 +1,10 @@
-- [ ] 69 platinum god todos los items sin dlc's
-- [ ] 84 real platinum god todos los items de verdad sin dlc's
+- [x] 69 platinum god todos los items sin dlc's
+- [x] 84 real platinum god todos los items de verdad sin dlc's
 - [ ] all secrets
 
 Numero de pagina,y,x,nombre
 
-- [ ] 3 2 20 d4
+- [x] 3 2 20 d4
 
 - [ ] 4 2 2  d12
 - [ ] 4 6 6  Husky
@@ -12,4 +12,4 @@ Numero de pagina,y,x,nombre
 
 - [ ] 5 4 4  jaw bone
 
-- [ ] 6 4 13 jar of wisps
+- [x] 6 4 13 jar of wisps
