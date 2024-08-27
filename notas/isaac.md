@@ -9,7 +9,6 @@ Numero de pagina,y,x,nombre
 
 - [ ] 4 2 2  d12
 - [ ] 4 4 17 mega blast
-- [x] 4 5 6  Eye of greed
 - [ ] 4 6 6  Husky
 - [ ] 4 6 20 wait what?
 
@@ -20,4 +19,3 @@ Numero de pagina,y,x,nombre
 - [ ] 6 3 2  star of bethlehem
 - [ ] 6 4 13 jar of wisps
 - [ ] 6 4 15 friend finder
-- [x] 6 5 11 esau jr.
