@@ -8,5 +8,5 @@ $Alias = @{
     "v" = "Zellij-Attach"
 
     "a" = "repo"
-    "h" = "helix"
+    "h" = "hx"
 }
