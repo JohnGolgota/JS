@@ -34,7 +34,11 @@ Add-Content -Path $PROFILE -Value "Set-PSReadLineOption -EditMode Windows"
 
 if ($IsLinux)
 {
-	Add-Content -Path $PROFILE -Value "`n`$Env:PATH = `"${HOME}/.cargo/bin:`$Env:PATH`""
+	$Paths = @(
+		"${HOME}/.cargo/bin"
+	)
+	$NewPath = $Paths -join ':'
+	Add-Content -Path $PROFILE -Value "`n`$Env:PATH = `"${NewPath}:`$Env:PATH`""
 	Set-NoWindowsEnvs
 }
 if ($IsMacOS)
@@ -49,6 +53,7 @@ if ($IsMacOS)
 		"${HOME}/.nix-profile/bin",
 		"/nix/var/nix/profiles/default/bin",
 		"${HOME}/asd/bin"
+		"${HOME}/.cargo/bin"
 	)
 	$NewPath = $Paths -join ':'
 	Add-Content -Path $PROFILE -Value "`n`$Env:PATH = `"${NewPath}:`$Env:PATH`""
