@@ -2,6 +2,7 @@ function Set-NoWindowsEnvs
 {
 	$Paths = @(
 		"${HOME}/.local/share/bob/nvim-bin",
+		"${HOME}/.deno/bin"
 		"$Env:JS/bin"
 	)
 	$NewPath = $Paths -join ':'
