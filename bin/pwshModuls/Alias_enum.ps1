@@ -1,6 +1,7 @@
 $Alias = @{
     "x" = "nvim"
     "c" = "code-insiders"
+    "co" = "codium"
     "vv" = "zellij"
     "gg" = "gitui"
     "g" = "git"
