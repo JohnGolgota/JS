@@ -14,6 +14,7 @@ function Set-NoWindowsEnvs
 	Add-Content -Path $PROFILE -Value "`n. $Env:JS/bin/Custom_Functions.ps1"
 	Add-Content -Path $PROFILE -Value ". $Env:JS/bin/RepoCli-Utils.ps1"
 	Add-Content -Path $PROFILE -Value ". $Env:JS/bin/PS_Alias.ps1"
+	Add-Content -Path $PROFILE -Value ". $Env:JS/bin/pwshModuls/CustomVarsModule.ps1"
 }
 
 function Set-WindowsEnvs
@@ -21,6 +22,7 @@ function Set-WindowsEnvs
 	Add-Content -Path $PROFILE -Value ". $Env:JS\bin\Custom_Functions.ps1"
 	Add-Content -Path $PROFILE -Value ". $Env:JS\bin\RepoCli-Utils.ps1"
 	Add-Content -Path $PROFILE -Value ". $Env:JS\bin\PS_Alias.ps1"
+	Add-Content -Path $PROFILE -Value ". $Env:JS\bin\pwshModuls\CustomVarsModule.ps1"
 }
 
 Write-Host "Configuring powershell..."
