@@ -10,7 +10,7 @@ function height_right_tringle(R) {
     return 3 * R
 }
 
-function area_right_tringle() {
+function area_right_tringle(R) {
     return (1 / 2) * base_right_tringle(R) * height_right_tringle(R)
 }
 
@@ -19,15 +19,17 @@ function area_square(R) {
     return side * side
 }
 
-const R = 91
+function find_R(perimeter) {
+    const R = perimeter / 16
+    console.log("R: ", R)
+    return R
+}
 
-console.log("Perimeter:", perimeter(R))
-
-const area_rt = area_right_tringle(R)
-console.log("Area right triangle:", area_rt)
-
-const area_sq = area_square(R)
-console.log("Area square:", area_sq)
-
-const area = area_rt + area_sq
-console.log("Area:", area)
+function area_right_tringle_and_square(perimeter) {
+    const R = find_R(perimeter)
+    const area_rt = area_right_tringle(R)
+    const area_sq = area_square(R)
+    const area_right_triangle_and_square_sum = area_rt + area_sq
+    console.log("area de la triangulo y el cuadrado: ", area_right_triangle_and_square_sum)
+    return area_right_triangle_and_square_sum
+}
